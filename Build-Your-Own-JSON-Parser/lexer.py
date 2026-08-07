@@ -1,4 +1,4 @@
-# this is a new lexer which lex things into simple terms
+# a simple lexer to identify known things in simple english
 
 from TokenType import TokenType
 from Token import Token, TokenManager
