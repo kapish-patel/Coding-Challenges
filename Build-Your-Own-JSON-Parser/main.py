@@ -1,15 +1,19 @@
+from modulefinder import test
 import sys
-from lexer import Lexer
+from Lexer import Lexer
 from pathlib import Path
 
 
 def main():
     testCaseStepNumber = int(sys.argv[1])
-    if testCaseStepNumber <= 0 or testCaseStepNumber >= 5:
+    if testCaseStepNumber <= -1 or testCaseStepNumber >= 6:
         return False
 
-    # read all the files in a directory
-    files = [f for f in Path(f"tests/step{testCaseStepNumber}").iterdir() if f.is_file()]
+    # we have to make a mechanism from which we can run single or multiple files
+    if testCaseStepNumber == 0:
+        files = getAllTestsInAllSteps()
+    else:
+        files = getAllTestsForAStep(testCaseStepNumber)
 
     index = 1
     for fl in files:
@@ -25,7 +29,14 @@ def main():
 
         print(lexer.getLexed(), end='\n\n')
 
-    
+def getAllTestsForAStep(stepNumber):
+    return [f for f in Path(f"tests/step{stepNumber}").iterdir() if f.is_file()]
+
+def getAllTestsInAllSteps():
+    all_files = []
+    for step in range(1, 6):
+        all_files.extend(getAllTestsForAStep(step))
+    return all_files
 
 
 if __name__ == "__main__":
