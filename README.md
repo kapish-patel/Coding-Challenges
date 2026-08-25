@@ -14,11 +14,9 @@ Use the table below to jump directly to any challenge solution.
 
 | # | Challenge | Category | Difficulty | Language | Solution | Notes |
 |---|-----------|----------|------------|----------|----------|-------|
-
+| 1 | Build Your Own JSON Parser | Parsing | Intermediate | Python | [Build-Your-Own-JSON-Parser](Build-Your-Own-JSON-Parser) | Completed |
 
 ## Status
 
 - Total Challenges Started: 1
-- Total Challenges Completed: 0
-
-Update these numbers whenever you add or complete a challenge.
+- Total Challenges Completed: 1
