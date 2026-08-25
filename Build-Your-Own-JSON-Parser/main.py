@@ -4,6 +4,7 @@ import time
 from Lexer import Lexer
 from pathlib import Path
 from test_reporter import ConsoleTestReporter
+from Parser import Parser
 
 
 def parse_args() -> argparse.Namespace:
@@ -50,6 +51,12 @@ def run_test(test_file: Path) -> tuple[bool, bool, dict]:
     context = test_file.read_text()
     lexer = Lexer(context)
     lexed_successfully = lexer.process_InputString()
+    # add parsing here
+    parser = Parser()
+    parsed_successfully = parser.parse(lexer.getLexedTokens())
+    actual_pass = lexed_successfully and parsed_successfully
+
+
     expected_pass = expected_to_pass(test_file)
 
     debug_info = {
@@ -57,7 +64,7 @@ def run_test(test_file: Path) -> tuple[bool, bool, dict]:
         "cursor_position": lexer.position,
         "tokens": lexer.getLexed(),
     }
-    return lexed_successfully, expected_pass, debug_info
+    return actual_pass, expected_pass, debug_info
 
 
 def main() -> int:

@@ -108,3 +108,6 @@ class Lexer:
 
     def getLexed(self):
         return [token.type for token in self.tokenManager.getTokens()]
+
+    def getLexedTokens(self):
+        return self.tokenManager.getTokens()
