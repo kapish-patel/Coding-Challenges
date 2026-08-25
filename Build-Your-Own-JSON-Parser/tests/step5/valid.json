@@ -1,0 +1,302 @@
+{
+  "hospital": {
+    "id": "HSP-1001",
+    "name": "General City Hospital",
+    "address": {
+      "street": "123 Health Ave",
+      "city": "Springfield",
+      "state": "IL",
+      "zip": "62701",
+      "country": "USA"
+    },
+    "departments": [
+      {
+        "id": "CARD",
+        "name": "Cardiology",
+        "head": {
+          "id": "DOC-001",
+          "name": "Dr. Sarah Williams"
+        }
+      },
+      {
+        "id": "NEUR",
+        "name": "Neurology",
+        "head": {
+          "id": "DOC-002",
+          "name": "Dr. Michael Chen"
+        }
+      }
+    ]
+  },
+  "patients": [
+    {
+      "patientId": "PAT-10001",
+      "personalInfo": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "dateOfBirth": "1988-04-12",
+        "gender": "Male",
+        "married": true,
+        "phone": "555-123-4567",
+        "email": "john.doe@example.com",
+        "address": {
+          "street": "45 Oak Street",
+          "city": "Springfield",
+          "state": "IL",
+          "zip": "62702"
+        }
+      },
+      "insurance": {
+        "provider": "HealthPlus",
+        "policyNumber": "HP-889922",
+        "active": true
+      },
+      "allergies": [
+        "Penicillin",
+        "Peanuts"
+      ],
+      "emergencyContacts": [
+        {
+          "name": "Jane Doe",
+          "relationship": "Spouse",
+          "phone": "555-987-6543"
+        },
+        {
+          "name": "Mark Doe",
+          "relationship": "Brother",
+          "phone": "555-111-2222"
+        }
+      ],
+      "visits": [
+        {
+          "visitId": "VIS-5001",
+          "date": "2026-07-15",
+          "department": "Cardiology",
+          "doctor": {
+            "id": "DOC-001",
+            "name": "Dr. Sarah Williams"
+          },
+          "diagnosis": [
+            {
+              "code": "I10",
+              "description": "Essential hypertension"
+            }
+          ],
+          "vitals": {
+            "heightCm": 180,
+            "weightKg": 82.5,
+            "bloodPressure": {
+              "systolic": 135,
+              "diastolic": 88
+            },
+            "heartRate": 78,
+            "temperatureC": 36.8
+          },
+          "medications": [
+            {
+              "name": "Lisinopril",
+              "dosage": "10mg",
+              "frequency": "Once Daily"
+            }
+          ],
+          "labResults": [
+            {
+              "test": "Complete Blood Count",
+              "status": "Normal",
+              "values": {
+                "WBC": 6.5,
+                "RBC": 4.8,
+                "Hemoglobin": 14.7
+              }
+            },
+            {
+              "test": "Lipid Panel",
+              "status": "Abnormal",
+              "values": {
+                "LDL": 152,
+                "HDL": 45,
+                "Triglycerides": 210
+              }
+            }
+          ],
+          "billing": {
+            "invoiceId": "INV-7001",
+            "total": 425.75,
+            "paid": false,
+            "balance": 425.75
+          }
+        }
+      ]
+    },
+    {
+      "patientId": "PAT-10002",
+      "personalInfo": {
+        "firstName": "Emily",
+        "lastName": "Johnson",
+        "dateOfBirth": "1995-11-22",
+        "gender": "Female",
+        "married": false,
+        "phone": "555-444-8888",
+        "email": "emily.johnson@example.com",
+        "address": {
+          "street": "78 Pine Road",
+          "city": "Riverton",
+          "state": "IL",
+          "zip": "62561"
+        }
+      },
+      "insurance": {
+        "provider": "BlueCare",
+        "policyNumber": "BC-112233",
+        "active": true
+      },
+      "allergies": [],
+      "emergencyContacts": [
+        {
+          "name": "Laura Johnson",
+          "relationship": "Mother",
+          "phone": "555-222-9999"
+        }
+      ],
+      "visits": [
+        {
+          "visitId": "VIS-5002",
+          "date": "2026-06-28",
+          "department": "Neurology",
+          "doctor": {
+            "id": "DOC-002",
+            "name": "Dr. Michael Chen"
+          },
+          "diagnosis": [
+            {
+              "code": "G43.909",
+              "description": "Migraine"
+            }
+          ],
+          "vitals": {
+            "heightCm": 165,
+            "weightKg": 60.2,
+            "bloodPressure": {
+              "systolic": 118,
+              "diastolic": 74
+            },
+            "heartRate": 72,
+            "temperatureC": 36.6
+          },
+          "medications": [
+            {
+              "name": "Sumatriptan",
+              "dosage": "50mg",
+              "frequency": "As Needed"
+            }
+          ],
+          "labResults": [],
+          "billing": {
+            "invoiceId": "INV-7002",
+            "total": 190.5,
+            "paid": true,
+            "balance": 0
+          }
+        },
+        {
+          "visitId": "VIS-5003",
+          "date": "2026-08-01",
+          "department": "General Medicine",
+          "doctor": {
+            "id": "DOC-010",
+            "name": "Dr. Kevin Brown"
+          },
+          "diagnosis": [
+            {
+              "code": "J06.9",
+              "description": "Upper respiratory infection"
+            }
+          ],
+          "vitals": {
+            "heightCm": 165,
+            "weightKg": 60.8,
+            "bloodPressure": {
+              "systolic": 120,
+              "diastolic": 76
+            },
+            "heartRate": 84,
+            "temperatureC": 38.2
+          },
+          "medications": [
+            {
+              "name": "Acetaminophen",
+              "dosage": "500mg",
+              "frequency": "Every 6 Hours"
+            }
+          ],
+          "labResults": [
+            {
+              "test": "COVID-19 PCR",
+              "status": "Negative",
+              "values": {
+                "result": false
+              }
+            }
+          ],
+          "billing": {
+            "invoiceId": "INV-7003",
+            "total": 95.0,
+            "paid": true,
+            "balance": 0
+          }
+        }
+      ]
+    }
+  ],
+  "staff": {
+    "doctors": [
+      {
+        "id": "DOC-001",
+        "name": "Dr. Sarah Williams",
+        "specialty": "Cardiology",
+        "yearsExperience": 14,
+        "boardCertified": true
+      },
+      {
+        "id": "DOC-002",
+        "name": "Dr. Michael Chen",
+        "specialty": "Neurology",
+        "yearsExperience": 10,
+        "boardCertified": true
+      }
+    ],
+    "nurses": [
+      {
+        "id": "NUR-101",
+        "name": "Alice Green",
+        "shift": "Day"
+      },
+      {
+        "id": "NUR-102",
+        "name": "Robert White",
+        "shift": "Night"
+      }
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2026-08-07T12:00:00Z",
+    "version": "1.0",
+    "recordCount": {
+      "patients": 2,
+      "departments": 2,
+      "doctors": 2
+    },
+    "features": {
+      "supportsBilling": true,
+      "supportsLabResults": true,
+      "supportsImaging": false
+    },
+    "tags": [
+      "sample",
+      "hospital",
+      "parser-test",
+      "nested-json"
+    ],
+    "notes": null
+  }
+}
