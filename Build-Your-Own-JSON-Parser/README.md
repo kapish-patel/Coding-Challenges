@@ -1,31 +1,41 @@
 # Build Your Own JSON Parser
 
-This project is a small implementation of a JSON lexer built as part of the "Build Your Own JSON Parser" challenge. The goal is to scan raw JSON-like input and convert it into a stream of tokens that can later be used by a parser.
+This project is a complete Python implementation of the "Build Your Own JSON Parser" challenge. It includes both a lexer and a recursive-descent parser that validate and parse JSON data structures from raw input.
 
 ## Challenge goals
-- Implement lexing for JSON-like input
-- Recognize structural characters such as braces, brackets, commas, and colons
-- Tokenize values such as strings, numbers, booleans, and null
-- Ignore whitespace and produce an end-of-file token
-- Support running sample tests for different challenge steps
+- Tokenize valid JSON syntax
+- Parse objects, arrays, strings, numbers, booleans, and null
+- Reject malformed JSON and trailing tokens
+- Validate the implementation against the provided challenge test cases
+- Provide a compact CLI for running and debugging tests
 
-## Current implementation
-The lexer now supports:
-- Objects and arrays: `{`, `}`, `[`, `]`
-- Separators: `,` and `:`
-- Strings wrapped in double quotes
-- Integers and floats
+## What is implemented
+The solution now supports:
+- Objects and arrays: `{}`, `[]`
+- Key-value pairs with `:`
+- Comma-separated elements and members
+- Double-quoted strings
+- Integer and float numeric literals
 - Boolean values: `true` and `false`
 - Null values: `null`
-- Whitespace handling
-- Token management through lightweight token and token-type classes
+- Whitespace skipping and EOF handling
+- Parser validation for complete JSON documents
+
+The parser is built around a simple recursive-descent approach:
+- `parse_value()` handles any valid JSON value
+- `parse_object()` parses object members
+- `parse_array()` parses array elements
+- `current()`, `consume()`, and `match()` manage token progression and validation
 
 ## Project files
-- [main.py](main.py) - entry point for running the lexer against test files
-- [Lexer.py](Lexer.py) - main lexer implementation
+- [main.py](main.py) - CLI entry point and test runner
+- [Lexer.py](Lexer.py) - tokenizes raw JSON input
+- [Parser.py](Parser.py) - recursive-descent JSON parser
+- [Nodes.py](Nodes.py) - in-memory representation for parsed values
 - [Token.py](Token.py) - token container and token manager
-- [TokenType.py](TokenType.py) - token type definitions
-- [test_reporter.py](test_reporter.py) - reusable console test reporter with colors and summary stats
+- [TokenType.py](TokenType.py) - token definitions
+- [test_reporter.py](test_reporter.py) - report formatting and summary output
+- [tests/](tests/) - challenge fixtures for each step
 
 ## Running the tests
 From the project directory, run all test cases:
@@ -44,42 +54,37 @@ python3 main.py 4
 python3 main.py 5
 ```
 
-Run one specific test case number from the selected scope:
+Run one specific test case from the selected scope:
 
 ```bash
 python3 main.py 0 --case 10
 python3 main.py 2 --case 3
 ```
 
-Disable colors when needed:
+Disable colors:
 
 ```bash
 python3 main.py 0 --no-color
 ```
 
-Enable debug mode for clean per-test diagnostics:
+Enable detailed debug output:
 
 ```bash
 python3 main.py 0 --debug
 python3 main.py 2 --case 3 --debug
 ```
 
-Output is compact and includes only:
-- Case number
-- Test file
-- PASS or FAIL
-- Final summary stats (total, passed, failed, pass percentage, execution time)
-
-With debug mode enabled, each test also prints:
-- Expected result (PASS/FAIL)
-- Actual lexer result (PASS/FAIL)
-- Lexer cursor position
-- Token stream snapshot
+## Current status
+The implementation passes all provided tests in the challenge suite:
+- 12 total cases
+- 12 passed
+- 0 failed
+- 100% pass rate
 
 ## Useful references
-- [JSON graphical representation](https://www.json.org/json-en.html)
-- [JSON defined by IETF](https://www.rfc-editor.org/info/std90/)
+- [JSON specification on json.org](https://www.json.org/json-en.html)
+- [JSON RFC 8259](https://datatracker.ietf.org/doc/html/rfc8259)
 
 ## Notes
-This is an early-stage lexer implementation, and the next step would be to turn these tokens into a full JSON parser.
+This solution completes the parser challenge by converting the lexer output into a working JSON parser that validates both valid and invalid JSON inputs in the supplied test set.
 
